@@ -4,9 +4,9 @@ from collections import defaultdict
 from datetime import datetime
 from pathlib import Path
 
-from git.repo import Repo
+from ..utils.http import async_get
 
-DATA_URL = "https://github.com/azmiao/uma_info_data.git"
+RAW_BASE_URL = "https://raw.githubusercontent.com/azmiao/uma_info_data/main"
 
 if platform.system() == "Windows":
     DATE_FORMAT = "%#m月%#d日"
@@ -15,21 +15,12 @@ else:
 
 
 async def ensure_data(data_dir: Path) -> bool:
-    repo_dir = data_dir / "base_data"
-    config_path = data_dir / "config_v2.json"
     try:
-        if not repo_dir.exists():
-            repo_dir.mkdir(parents=True, exist_ok=True)
-            Repo.clone_from(DATA_URL, to_path=str(repo_dir), branch="main")
-        else:
-            repo = Repo(str(repo_dir))
-            repo.git.pull()
-        src = repo_dir / "config_v2.json"
-        if src.exists():
-            import shutil
-            shutil.copy2(str(src), str(config_path))
+        resp = await async_get(f"{RAW_BASE_URL}/config_v2.json", use_proxy=False)
+        resp.raise_for_status()
+        (data_dir / "config_v2.json").write_text(resp.text, encoding="utf-8")
         return True
-    except Exception as e:
+    except Exception:
         return False
 
 

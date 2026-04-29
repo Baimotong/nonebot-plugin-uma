@@ -1,4 +1,3 @@
-import shutil
 from datetime import datetime
 
 import nonebot
@@ -33,10 +32,6 @@ async def _ensure_data():
         if not success:
             logger.error("马娘生日数据初始化失败")
             return False
-    if not _replace_dict_path.exists():
-        src = _birthday_dir / "base_data" / "replace_dict.json"
-        if src.exists():
-            shutil.copy2(str(src), str(_replace_dict_path))
     return True
 
 

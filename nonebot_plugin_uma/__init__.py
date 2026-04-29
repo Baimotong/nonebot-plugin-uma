@@ -9,7 +9,7 @@ from .config import UmaConfig
 
 __plugin_meta__ = PluginMetadata(
     name="赛马娘插件",
-    description="赛马娘模拟抽卡、新闻推送、生日提醒",
+    description="赛马娘模拟抽卡、新闻推送、生日推送",
     usage="发送 马娘帮助 查看全部指令",
     type="application",
     homepage="https://github.com/Baimotong/nonebot-plugin-uma",
