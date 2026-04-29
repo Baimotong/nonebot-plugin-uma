@@ -1,0 +1,31 @@
+[build-system]
+requires = ["hatchling"]
+build-backend = "hatchling.build"
+
+[project]
+name = "nonebot-plugin-uma"
+version = "0.1.0"
+description = "NoneBot2 赛马娘插件 - 模拟抽卡 | 新闻推送 | 生日提醒"
+readme = "README.md"
+license = "GPL-3.0-only"
+requires-python = ">=3.10"
+authors = [
+    { name = "Baimotong" },
+]
+dependencies = [
+    "nonebot2>=2.4.4",
+    "nonebot-adapter-onebot>=2.4.6",
+    "nonebot-plugin-apscheduler>=0.5.0",
+    "httpx>=0.28.0",
+    "pillow>=10.0.0",
+    "beautifulsoup4>=4.12.0",
+    "lxml>=4.9.0",
+    "gitpython>=3.1.0",
+]
+
+[project.urls]
+Homepage = "https://github.com/Baimotong/nonebot-plugin-uma"
+Repository = "https://github.com/Baimotong/nonebot-plugin-uma"
+
+[tool.nonebot]
+plugins = ["nonebot_plugin_uma"]
