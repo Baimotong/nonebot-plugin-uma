@@ -3,7 +3,7 @@ requires = ["hatchling"]
 build-backend = "hatchling.build"
 
 [project]
-name = "nonebot-plugin-uma"
+name = "nb-plugin-uma"
 version = "0.1.0"
 description = "NoneBot2 赛马娘插件 - 模拟抽卡 | 新闻推送 | 生日提醒"
 readme = "README.md"
@@ -29,3 +29,6 @@ Repository = "https://github.com/Baimotong/nonebot-plugin-uma"
 
 [tool.nonebot]
 plugins = ["nonebot_plugin_uma"]
+
+[tool.hatch.build.targets.wheel]
+packages = ["nonebot_plugin_uma"]

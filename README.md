@@ -34,13 +34,13 @@ nb plugin install nonebot-plugin-uma
 ### 方式二：uv
 
 ```bash
-uv add nonebot-plugin-uma
+uv add nb-plugin-uma
 ```
 
 ### 方式三：pip
 
 ```bash
-pip install nonebot-plugin-uma
+pip install nb-plugin-uma
 ```
 
 
