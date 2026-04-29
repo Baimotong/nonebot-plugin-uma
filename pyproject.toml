@@ -4,7 +4,7 @@ build-backend = "hatchling.build"
 
 [project]
 name = "nb-plugin-uma"
-version = "0.1.0"
+version = "0.1.1"
 description = "NoneBot2 赛马娘插件 - 模拟抽卡 | 新闻推送 | 生日提醒"
 readme = "README.md"
 license = "GPL-3.0-only"
