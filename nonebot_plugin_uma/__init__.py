@@ -12,7 +12,7 @@ __plugin_meta__ = PluginMetadata(
     description="赛马娘模拟抽卡、新闻推送、生日推送",
     usage="发送 马娘帮助 查看全部指令",
     type="application",
-    homepage="https://github.com/Baimotong/nonebot-plugin-uma",
+    homepage="https://github.com/Baimotong/nonebot-plugin-umamusume",
     config=UmaConfig,
     supported_adapters={"~onebot.v11"},
 )

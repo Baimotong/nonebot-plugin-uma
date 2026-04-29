@@ -74,21 +74,23 @@ async def poll_news_jp():
         return
     try:
         flag = await judge("jp", news_list, _news_dir)
-    except Exception:
+    except Exception as e:
+        logger.warning(f"日服马娘新闻判断失败: {type(e).__name__}: {e}")
         return
     if not flag:
         return
     logger.info("检测到日服马娘新闻更新！")
     try:
         msg = await news_broadcast("jp", news_list, _news_dir)
-    except Exception:
+    except Exception as e:
+        logger.warning(f"日服马娘新闻广播生成失败: {type(e).__name__}: {e}")
         return
     try:
         bot = get_bot()
         for gid in groups:
             try:
                 await bot.send_group_msg(group_id=gid, message=msg)
-            except Exception:
-                pass
+            except Exception as e:
+                logger.warning(f"马娘新闻推送到群 {gid} 失败: {e}")
     except Exception as e:
         logger.error(f"日服马娘新闻推送失败: {e}")

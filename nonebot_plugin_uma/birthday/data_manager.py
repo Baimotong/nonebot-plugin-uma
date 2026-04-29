@@ -31,14 +31,6 @@ def load_uma_data(config_path: Path) -> dict:
         return json.load(f)
 
 
-def load_replace_dict(data_dir: Path) -> dict:
-    path = data_dir / "replace_dict.json"
-    if not path.exists():
-        return {}
-    with open(path, "r", encoding="utf-8") as f:
-        return json.load(f)
-
-
 def parse_uma(raw: dict) -> dict:
     return {
         "id": raw.get("id", ""),

@@ -1,4 +1,4 @@
-# nonebot-plugin-uma
+# nonebot-plugin-umamusume
 
 NoneBot2 赛马娘插件 — 模拟抽卡 / 新闻推送 / 生日提醒
 
@@ -28,19 +28,19 @@ NoneBot2 赛马娘插件 — 模拟抽卡 / 新闻推送 / 生日提醒
 ### 方式一：nb-cli（推荐）
 
 ```bash
-nb plugin install nonebot-plugin-uma
+nb plugin install nonebot-plugin-umamusume
 ```
 
 ### 方式二：uv
 
 ```bash
-uv add nb-plugin-uma
+uv add nonebot-plugin-umamusume
 ```
 
 ### 方式三：pip
 
 ```bash
-pip install nb-plugin-uma
+pip install nonebot-plugin-umamusume
 ```
 
 

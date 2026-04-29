@@ -10,7 +10,6 @@ from ..utils.data import get_birthday_dir, load_json, save_json
 from .data_manager import (
     ensure_data,
     load_uma_data,
-    load_replace_dict,
     query_by_name,
     get_display_name,
     get_today_str,
@@ -149,7 +148,7 @@ async def push_birthday():
         for gid in groups:
             try:
                 await bot.send_group_msg(group_id=gid, message=msg)
-            except Exception:
-                pass
+            except Exception as e:
+                logger.warning(f"马娘生日推送到群 {gid} 失败: {e}")
     except Exception as e:
         logger.error(f"马娘生日推送失败: {e}")
