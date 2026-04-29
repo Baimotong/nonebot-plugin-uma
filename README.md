@@ -7,7 +7,9 @@ NoneBot2 赛马娘插件 — 模拟抽卡 / 新闻推送 / 生日提醒
 > **本插件移植自 [azmiao/uma_plugin](https://github.com/azmiao/uma_plugin)（HoshinoBot 版），原作者 [azmiao](https://github.com/azmiao)。**
 >
 > 本项目仅对原插件进行框架适配（HoshinoBot → NoneBot2），核心逻辑和数据来源归原作者所有。
+> 
 > 本项目遵循 [GPL-3.0](LICENSE) 开源协议，与原插件保持一致。
+> 
 > 本项目移植的模块是本人经常能用到的，别的不常用暂不移植，若有需要再做打算。
 
 
