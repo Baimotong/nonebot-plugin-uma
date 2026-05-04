@@ -7,7 +7,7 @@ import httpx
 from bs4 import BeautifulSoup
 
 from ..utils.http import DEFAULT_HEADERS
-from ..utils.constants import SERVER_LIST, get_differ
+from ..utils.constants import SERVER_LIST, get_differ, get_correspond
 
 INIT_DATA = {
     "other_uma": {

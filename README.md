@@ -49,7 +49,8 @@ pip install nonebot-plugin-umamusume
 在 NoneBot2 的 `.env.prod` 中添加以下配置（均为可选）：
 
 ```ini
-# 数据存储目录，默认 data/uma
+# 自定义数据存储目录（可选，默认使用 nonebot-plugin-localstore 标准路径）
+# 若之前使用旧版本且数据在 data/uma 中，可填写此路径以兼容已有数据
 UMA_DATA_DIR=data/uma
 
 # 默认服务器，可选 jp/tw/ko/bili，默认 jp

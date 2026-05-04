@@ -14,17 +14,9 @@ import nonebot
 _global_config = nonebot.get_plugin_config(UmaConfig)
 
 
-def _get_legacy_data_dir() -> Path | None:
-    """检查是否存在旧版默认数据目录，用于兼容迁移"""
-    legacy = Path("data/uma")
-    if legacy.exists() and any(legacy.iterdir()):
-        return legacy
-    return None
-
-
-def get_data_dir() -> Path:
+def _resolve_data_dir() -> Path:
     """
-    获取数据目录，优先级：
+    解析数据目录，优先级：
     1. 用户自定义配置路径（兼容旧配置）
     2. 旧版默认路径 data/uma（有数据时兼容）
     3. nonebot-plugin-localstore 标准路径
@@ -35,30 +27,38 @@ def get_data_dir() -> Path:
         return custom_dir
 
     # 2. 旧版默认路径存在且有数据
-    legacy = _get_legacy_data_dir()
-    if legacy:
+    legacy = Path("data/uma")
+    if legacy.exists() and any(legacy.iterdir()):
         return legacy
 
     # 3. 新用户使用 localstore 标准路径
     return store.get_plugin_data_dir()
 
 
+# 模块导入时只计算一次数据目录路径
+_data_dir: Path = _resolve_data_dir()
+_gacha_dir: Path = _data_dir / "gacha"
+_news_dir: Path = _data_dir / "news"
+_birthday_dir: Path = _data_dir / "birthday"
+
+
+def get_data_dir() -> Path:
+    return _data_dir
+
+
 def get_gacha_dir() -> Path:
-    d = get_data_dir() / "gacha"
-    d.mkdir(parents=True, exist_ok=True)
-    return d
+    _gacha_dir.mkdir(parents=True, exist_ok=True)
+    return _gacha_dir
 
 
 def get_news_dir() -> Path:
-    d = get_data_dir() / "news"
-    d.mkdir(parents=True, exist_ok=True)
-    return d
+    _news_dir.mkdir(parents=True, exist_ok=True)
+    return _news_dir
 
 
 def get_birthday_dir() -> Path:
-    d = get_data_dir() / "birthday"
-    d.mkdir(parents=True, exist_ok=True)
-    return d
+    _birthday_dir.mkdir(parents=True, exist_ok=True)
+    return _birthday_dir
 
 
 def get_default_server() -> str:
